@@ -5,7 +5,19 @@
 
 An accounts-payable intake agent that watches a SharePoint inbox, extracts vendor invoices with Azure AI Document Intelligence, three-way-matches them against PO and receiving data with a **deterministic rules engine** (a coded Azure Function), auto-files clean invoices, and routes exceptions to a human via a Teams adaptive card. A Copilot Studio agent grounded in the same SharePoint data gives AP staff a conversational window into the queue.
 
-**Categories:** Best Microsoft Copilot Integration (primary) · Best AI Agent / Workflow Automation (secondary)
+## Team
+
+- **Solo**
+- Kenny Yukich ([@KtrainUSA503](https://github.com/KtrainUSA503))
+
+## Category
+
+- **Primary:** Best Microsoft Copilot Integration
+- **Secondary:** Best AI Agent / Workflow Automation
+
+## Demo
+
+▶️ **[Watch the demo video](Video%20Project%207_compressed.mp4)** — committed to this repo (24 MB; GitHub won't preview it inline, click **View raw** to download and play).
 
 ---
 
@@ -83,11 +95,24 @@ docs/                     architecture notes and demo script
 fixtures/                 synthetic invoice PDFs + PO seed data
 ```
 
+## Known limitations
+
+Being honest about what's not done:
+
+- **Single currency, no tax logic.** All fixtures are zero-tax USD invoices; tax lines and multi-currency would need new rules, not just new data.
+- **Unit-of-measure conversion is schema-ready but not enforced.** `PO_Lines` carries a `uom_factor` column; the rules engine doesn't apply it yet.
+- **The Copilot Studio agent reads and explains the queue; conversational *approve* is partially wired.** Approval is fully functional through the Teams adaptive card path.
+- **The ±5% price tolerance and 0.80 confidence threshold are hard-coded.** In production these belong in configuration an AP manager can own.
+- **No retry/poison-queue handling** if the flow fails mid-run — the PDF simply stays in `/Inbox` for reprocessing, which is safe but manual.
+
+Next steps: finish conversational approval, externalize thresholds, add a vendor-master check (rule 7: is this vendor even one we buy from?), and pilot against the real workflow that inspired it.
+
 ## Real-world grounding
 
 Modeled on an actual manual AP workflow (email → OCR tool → ERP) observed in a manufacturing environment — this isn't a toy problem, it's a Tuesday.
 
 ---
+
 ## About the builder
 
 I'm not a developer. I'm a Lean / continuous-improvement practitioner who moved
