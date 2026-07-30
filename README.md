@@ -88,5 +88,21 @@ fixtures/                 synthetic invoice PDFs + PO seed data
 Modeled on an actual manual AP workflow (email → OCR tool → ERP) observed in a manufacturing environment — this isn't a toy problem, it's a Tuesday.
 
 ---
+## About the builder
+
+I'm not a developer. I'm a Lean / continuous-improvement practitioner who moved
+into a tech-adjacent role about six months ago — my background is process, not
+programming. Every line of code in this repo was written with AI coding
+assistants, at this event, with me directing the architecture, testing every
+path, and making every design decision.
+
+That's not a disclaimer — it's the point of the project. The core design
+principle ("the LLM advises, it never decides about money") came from process
+discipline, not a CS degree. If AI collapses the distance between someone who
+deeply understands a workflow and working software, then the people who
+understand the workflows are about to become builders. This repo is one data
+point.
+
+---
 
 *Built solo in ~8 hours across two evenings at Microsoft HQ, Redmond. MIT licensed.*
