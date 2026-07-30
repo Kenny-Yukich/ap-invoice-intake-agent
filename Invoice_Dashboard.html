@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Command Center — Invoice Intake Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,400;75,600;75,700;100,400;100,500;100,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F1; --paper2:#EFEDE4; --ink:#1C2B23; --rule:#2E6B4F;
+    --rule-soft:#2E6B4F33; --blue:#2B4A73; --red:#B3382C; --amber:#C98A2D;
+    --green-bar:#E8EFE7;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Archivo',sans-serif; font-stretch:100%;
+    line-height:1.5; min-height:100vh;
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #1c2b2308 28px);
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- Masthead ---------- */
+  header{
+    border-bottom:3px double var(--rule); padding:28px 32px 18px;
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 24px;
+  }
+  header h1{
+    font-stretch:75%; font-weight:700; font-size:clamp(22px,3.4vw,34px);
+    letter-spacing:.14em; text-transform:uppercase;
+  }
+  header .ledger-no{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--rule);}
+  header .motto{
+    margin-left:auto; font-size:13px; font-weight:600; letter-spacing:.06em;
+    color:var(--red); text-transform:uppercase; border:1.5px solid var(--red);
+    padding:4px 10px; transform:rotate(-1.2deg);
+  }
+  .subhead{
+    padding:8px 32px; font-size:12px; color:#5a6b60; border-bottom:1px solid var(--rule-soft);
+    display:flex; gap:18px; flex-wrap:wrap;
+  }
+  .subhead b{color:var(--ink); font-weight:600;}
+
+  /* ---------- Tabs ---------- */
+  nav{display:flex; gap:0; border-bottom:2px solid var(--rule); padding:0 32px; overflow-x:auto;}
+  nav button{
+    appearance:none; background:none; border:none; cursor:pointer;
+    font-family:'Archivo'; font-stretch:75%; font-weight:600; font-size:13px;
+    letter-spacing:.12em; text-transform:uppercase; color:#5a6b60;
+    padding:14px 18px 12px; border-bottom:3px solid transparent; margin-bottom:-2px;
+    white-space:nowrap;
+  }
+  nav button:hover{color:var(--ink);}
+  nav button:focus-visible{outline:2px solid var(--blue); outline-offset:-2px;}
+  nav button.active{color:var(--ink); border-bottom-color:var(--rule);}
+  main{padding:28px 32px 64px; max-width:1180px; margin:0 auto;}
+  section[hidden]{display:none;}
+  @media (prefers-reduced-motion:no-preference){
+    section{animation:settle .25s ease-out;}
+    @keyframes settle{from{opacity:0; transform:translateY(4px);}to{opacity:1; transform:none;}}
+  }
+
+  /* ---------- Stamps ---------- */
+  .stamp{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-weight:600;
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    border:2px solid currentColor; border-radius:3px; padding:2px 8px;
+    transform:rotate(-2deg); opacity:.92;
+  }
+  .stamp.ready{color:var(--rule);}
+  .stamp.posted{color:var(--blue);}
+  .stamp.held{color:var(--amber);}
+  .stamp.rejected{color:var(--red);}
+
+  /* ---------- Counters ---------- */
+  .counters{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-bottom:30px;}
+  .counter{
+    border:1px solid var(--rule-soft); background:#fff; padding:14px 16px 12px; position:relative;
+  }
+  .counter::before{content:""; position:absolute; inset:0 auto 0 0; width:4px; background:var(--c,var(--rule));}
+  .counter .num{font-family:'IBM Plex Mono'; font-size:30px; font-weight:600; line-height:1;}
+  .counter .lbl{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#5a6b60; margin-top:6px;}
+
+  /* ---------- Ledger table ---------- */
+  table{width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--rule-soft); font-size:14px;}
+  thead th{
+    text-align:left; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--rule); border-bottom:2px solid var(--rule); padding:10px 12px; font-weight:600;
+  }
+  tbody tr:nth-child(even){background:var(--green-bar);}
+  tbody td{padding:10px 12px; border-bottom:1px solid var(--rule-soft); vertical-align:middle;}
+  tbody tr{cursor:pointer;}
+  tbody tr:hover{outline:2px solid var(--blue); outline-offset:-2px;}
+  .num-cell{font-family:'IBM Plex Mono'; text-align:right;}
+  .reason-cell{font-size:12.5px; color:#5a6b60; max-width:260px;}
+  caption{caption-side:bottom; text-align:left; font-size:11.5px; color:#5a6b60; padding:8px 2px;}
+
+  /* ---------- Rules trace ---------- */
+  .chips{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
+  .chips button{
+    font-family:'IBM Plex Mono'; font-size:13px; border:1px solid var(--rule);
+    background:#fff; color:var(--ink); padding:6px 14px; cursor:pointer;
+  }
+  .chips button.active{background:var(--rule); color:#fff;}
+  .chips button:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+  .trace{background:#fff; border:1px solid var(--rule-soft);}
+  .trace-head{padding:16px 20px; border-bottom:2px solid var(--rule); display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .trace-head .mono{font-size:15px; font-weight:600;}
+  .rule-row{
+    display:grid; grid-template-columns:44px 190px 1fr; gap:14px; align-items:start;
+    padding:13px 20px; border-bottom:1px solid var(--rule-soft);
+  }
+  .rule-row:last-child{border-bottom:none;}
+  .rule-mark{font-family:'IBM Plex Mono'; font-weight:600; font-size:15px;}
+  .pass .rule-mark{color:var(--rule);}
+  .fail .rule-mark{color:var(--red);}
+  .skip .rule-mark, .skip{color:#9aa79f;}
+  .rule-name{font-weight:600; font-size:13.5px;}
+  .rule-note{font-size:13px; color:#5a6b60;}
+  .fail .rule-note{color:var(--red); font-weight:500;}
+  .advisory{
+    margin:16px 20px 20px; border:1.5px dashed var(--amber); background:#C98A2D0F; padding:14px 16px;
+  }
+  .advisory .tag{
+    font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--amber); font-weight:600;
+  }
+  .advisory .gl{font-family:'IBM Plex Mono'; font-size:18px; font-weight:600; margin:4px 0 2px;}
+  .advisory p{font-size:13px; color:#5a6b60;}
+  .conf-inline{font-family:'IBM Plex Mono'; font-size:12px; color:var(--amber);}
+
+  /* ---------- Extraction viewer ---------- */
+  .xray{display:grid; grid-template-columns:minmax(300px,430px) 1fr; gap:26px; align-items:start;}
+  @media(max-width:840px){.xray{grid-template-columns:1fr;}}
+  .invoice-repro{
+    background:#fff; border:1px solid #d8d5c8; padding:26px 28px;
+    box-shadow:3px 3px 0 #1c2b2314; font-size:13px;
+  }
+  .invoice-repro h3{font-stretch:75%; letter-spacing:.1em; font-size:19px; color:var(--blue);}
+  .invoice-repro .vend{font-size:11.5px; color:#5a6b60; margin-bottom:14px;}
+  .repro-meta{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; font-size:12.5px; margin-bottom:14px;}
+  .repro-meta b{font-weight:600;}
+  .repro-meta .mono{font-size:12.5px;}
+  .invoice-repro table{border:none; font-size:12px;}
+  .invoice-repro thead th{padding:6px 8px; font-size:10px;}
+  .invoice-repro td{padding:6px 8px;}
+  .invoice-repro tbody tr{cursor:default;}
+  .invoice-repro tbody tr:hover{outline:none;}
+  .totals{margin-top:8px; text-align:right; font-family:'IBM Plex Mono'; font-size:12.5px;}
+  .totals div{padding:2px 8px;}
+  .totals .grand{font-weight:600; border-top:1px solid var(--ink); display:inline-block;}
+  .fields h3{font-stretch:75%; text-transform:uppercase; letter-spacing:.12em; font-size:14px; margin-bottom:4px;}
+  .fields .note{font-size:12.5px; color:#5a6b60; margin-bottom:18px;}
+  .field{margin-bottom:14px;}
+  .field .row1{display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:13px;}
+  .field .fname{font-weight:600;}
+  .field .fval{font-family:'IBM Plex Mono'; font-size:12.5px; color:#5a6b60;}
+  .bar{height:9px; background:var(--paper2); border:1px solid var(--rule-soft); margin-top:5px; position:relative;}
+  .bar i{position:absolute; inset:0 auto 0 0; background:var(--rule); width:0%;}
+  .bar.warn i{background:var(--red);}
+  .bar .pct{
+    position:absolute; right:4px; top:-2px; font-family:'IBM Plex Mono'; font-size:10px;
+    line-height:12px; color:#5a6b60;
+  }
+  .field .flagline{display:flex; gap:8px; align-items:center; margin-top:6px;}
+  .finding{
+    margin-top:26px; border-left:4px solid var(--rule); background:#fff; padding:16px 18px;
+    font-size:13.5px;
+  }
+  .finding b{color:var(--rule);}
+
+  /* ---------- Audit register ---------- */
+  .register{background:#fff; border:1px solid var(--rule-soft);}
+  .reg-row{
+    display:grid; grid-template-columns:120px 110px 1fr; gap:16px; padding:16px 20px;
+    border-bottom:1px solid var(--rule-soft); align-items:start;
+  }
+  .reg-row:last-child{border-bottom:none;}
+  .reg-when{font-family:'IBM Plex Mono'; font-size:12px; color:#5a6b60;}
+  .reg-body .who{font-size:13px; margin-top:6px;}
+  .reg-body .note{
+    font-size:13.5px; margin-top:4px; padding-left:10px; border-left:2px solid var(--rule-soft); font-style:italic;
+  }
+  .append-only{
+    margin-top:14px; font-size:12px; color:#5a6b60; display:flex; gap:8px; align-items:center;
+  }
+  .append-only::before{content:"§"; color:var(--rule); font-weight:700;}
+
+  .section-intro{max-width:720px; margin-bottom:24px; font-size:14.5px; color:#3d4a42;}
+  footer{
+    border-top:3px double var(--rule); margin-top:20px; padding:16px 32px; font-size:12px; color:#5a6b60;
+    display:flex; gap:20px; flex-wrap:wrap;
+  }
+  @media(max-width:700px){
+    header,main,.subhead,nav,footer{padding-left:16px; padding-right:16px;}
+    .rule-row{grid-template-columns:32px 1fr; }
+    .rule-row .rule-note{grid-column:2;}
+    .reg-row{grid-template-columns:1fr; gap:6px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AP Command Center</h1>
+  <span class="ledger-no mono">LEDGER NO. VSLHQ26 · INVOICE INTAKE AGENT · SOLO ENTRY</span>
+  <span class="motto">LLM advises · never decides about money</span>
+</header>
+<div class="subhead">
+  <span>Extraction <b>Azure AI Document Intelligence</b></span>
+  <span>Rules engine <b>Azure Function (Node.js)</b> — 6 deterministic checks</span>
+  <span>Advisory <b>gpt-5.4</b> — GL suggestion only</span>
+  <span>Authorization <b>Human, in Teams</b></span>
+  <span>Data shown <b>synthetic, mirrors live event runs</b></span>
+</div>
+
+<nav role="tablist">
+  <button class="active" data-tab="queue">Queue</button>
+  <button data-tab="rules">Rules Trace</button>
+  <button data-tab="xray">What The AI Sees</button>
+  <button data-tab="audit">Audit Register</button>
+</nav>
+
+<main>
+
+<!-- ================= QUEUE ================= -->
+<section id="tab-queue">
+  <p class="section-intro">Every invoice PDF dropped into the SharePoint inbox lands here with a verdict. Clean three-way matches file themselves. Everything else waits for a person.</p>
+  <div class="counters">
+    <div class="counter" style="--c:var(--rule)"><div class="num">2</div><div class="lbl">Ready · auto-filed</div></div>
+    <div class="counter" style="--c:var(--amber)"><div class="num">1</div><div class="lbl">Held · awaiting human</div></div>
+    <div class="counter" style="--c:var(--blue)"><div class="num">1</div><div class="lbl">Posted · human approved</div></div>
+    <div class="counter" style="--c:var(--red)"><div class="num">1</div><div class="lbl">Rejected · human declined</div></div>
+  </div>
+  <table>
+    <caption>Select any row to open its rules trace. computed_total is always the sum of extracted line items — never the model's extracted invoice total.</caption>
+    <thead><tr>
+      <th>Invoice</th><th>Vendor</th><th>PO</th><th class="num-cell">computed_total</th><th>Status</th><th>Machine reason / human note</th>
+    </tr></thead>
+    <tbody id="queue-body"></tbody>
+  </table>
+</section>
+
+<!-- ================= RULES TRACE ================= -->
+<section id="tab-rules" hidden>
+  <p class="section-intro">Six deterministic checks, evaluated in order, first failure wins. No model is consulted for any of them. The only AI involvement appears <em>after</em> a rule-3 failure — as a labeled suggestion, never a verdict.</p>
+  <div class="chips" id="rule-chips"></div>
+  <div class="trace" id="trace-panel"></div>
+</section>
+
+<!-- ================= X-RAY ================= -->
+<section id="tab-xray" hidden>
+  <p class="section-intro">Per-field extraction confidence from Azure Document Intelligence on fixture <span class="mono">01_clean_match.pdf</span>, measured live during the event. One number explains the architecture.</p>
+  <div class="xray">
+    <div class="invoice-repro" aria-label="Reproduction of fixture invoice">
+      <h3>INVOICE</h3>
+      <div class="vend">Cascade Industrial Supply · 1420 NW Industrial Way, Portland OR<br>Bill to: Northwest Manufacturing Co., Redmond WA</div>
+      <div class="repro-meta">
+        <span><b>Invoice No.</b> <span class="mono">INV-1001</span></span>
+        <span><b>PO</b> <span class="mono">PO-5001</span></span>
+        <span><b>Date</b> <span class="mono">2026-07-20</span></span>
+        <span><b>Terms</b> Net 30</span>
+      </div>
+      <table>
+        <thead><tr><th>Code</th><th>Description</th><th>Qty</th><th>Unit</th><th>Amt</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">A100</td><td>Steel mounting bracket, 4in</td><td class="mono">10</td><td class="mono">5.00</td><td class="mono">50.00</td></tr>
+          <tr><td class="mono">A200</td><td>Hex bolt M8x40 (box/100)</td><td class="mono">100</td><td class="mono">0.25</td><td class="mono">25.00</td></tr>
+        </tbody>
+      </table>
+      <div class="totals">
+        <div>Subtotal&nbsp;&nbsp;75.00</div>
+        <div>Tax&nbsp;&nbsp;0.00</div>
+        <div class="grand">Total Due&nbsp;&nbsp;75.00</div>
+      </div>
+    </div>
+    <div class="fields">
+      <h3>Extracted fields · measured confidence</h3>
+      <p class="note">Green bars feed the pipeline. The red bar is deliberately never used.</p>
+      <div id="field-bars"></div>
+      <div class="finding">
+        <b>The load-bearing finding:</b> on zero-tax invoices, subtotal and total are identical numbers — the model hedges between two equally valid readings and confidence on <span class="mono">InvoiceTotal</span> collapses to ~53%, while individual line items extract at 93–96%. So the pipeline computes its own total from line items and gates every money-relevant field at a 0.80 floor (rule 6). <em>The system is built to distrust the AI exactly where the AI is weak.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUDIT ================= -->
+<section id="tab-audit" hidden>
+  <p class="section-intro">Every terminal decision writes a row: who, when, what, and the human's own words. Rows are only ever created — never edited. That's what makes it an audit trail rather than a status field.</p>
+  <div class="register">
+    <div class="reg-row">
+      <div class="reg-when mono">2026-07-29<br>19:04 PT</div>
+      <div><span class="stamp posted">Posted</span></div>
+      <div class="reg-body">
+        <span class="mono">INV-1003</span> — held on rule 3 (freight line not on PO), advisory GL 5100 shown to approver.
+        <div class="who">Decided by <b>Kenny Yukich</b> via Teams approval card</div>
+        <div class="note">"Freight approved, coding to 5100 per suggestion."</div>
+      </div>
+    </div>
+    <div class="reg-row">
+      <div class="reg-when mono">2026-07-29<br>19:18 PT</div>
+      <div><span class="stamp rejected">Rejected</span></div>
+      <div class="reg-body">
+        <span class="mono">INV-1005</span> — held on rule 1 (duplicate invoice number).
+        <div class="who">Decided by <b>Kenny Yukich</b> via Teams approval card</div>
+        <div class="note">"no way man"</div>
+      </div>
+    </div>
+  </div>
+  <p class="append-only">Append-only by construction. A rejected invoice is logged and moved — not silently dropped.</p>
+</section>
+
+</main>
+
+<footer>
+  <span>VSLive! Microsoft AI Hackathon 2026 · Microsoft HQ, Redmond</span>
+  <span>The Guy With The Monitor (solo)</span>
+  <span class="mono">github.com/KtrainUSA503/vslhq26-KtrainUSA503</span>
+</footer>
+
+<script>
+// ---------------- Data (synthetic; mirrors live event test runs) ----------------
+const RULES = [
+  {n:1, name:"Duplicate invoice number", desc:"invoice_no not already in Invoice_Drafts"},
+  {n:2, name:"PO exists", desc:"po_number found in PO_Lines"},
+  {n:3, name:"Every line on the PO", desc:"each item_code matches a PO line"},
+  {n:4, name:"Qty ≤ received", desc:"billed quantity within goods received"},
+  {n:5, name:"Price within 5%", desc:"unit price vs PO tolerance"},
+  {n:6, name:"Extraction confidence ≥ 0.80", desc:"floor on money-relevant fields"},
+];
+
+const INVOICES = [
+  {id:"INV-1001", vendor:"Cascade Industrial Supply", po:"PO-5001", total:"75.00",
+   status:"ready", stampText:"Ready", failed:0, reason:"", note:"Auto-filed to /Filed",
+   ruleNotes:{}},
+  {id:"INV-1004", vendor:"Cascade Industrial Supply", po:"PO-5002", total:"260.00",
+   status:"ready", stampText:"Ready", failed:0, reason:"", note:"Auto-filed to /Filed",
+   ruleNotes:{}},
+  {id:"INV-1002", vendor:"Cascade Industrial Supply", po:"PO-5001", total:"82.50",
+   status:"held", stampText:"Held", failed:5,
+   reason:"Unit price 5.75 vs PO 5 = 15% (A100)", note:"Awaiting human decision in Teams",
+   ruleNotes:{5:"Unit price 5.75 vs PO 5.00 = 15% — exceeds 5% tolerance (A100)"}},
+  {id:"INV-1003", vendor:"Cascade Industrial Supply", po:"PO-5001", total:"120.00",
+   status:"posted", stampText:"Posted", failed:3,
+   reason:"Line not on PO: FRT", note:"Approved · \u201CFreight approved, coding to 5100 per suggestion.\u201D",
+   ruleNotes:{3:"Line not on PO: FRT — freight charge absent from PO-5001"},
+   advisory:{gl:"5100 · Freight-In", conf:"0.99",
+     rationale:"\u201CThe description explicitly indicates inbound freight or shipping, which maps directly to Freight-In.\u201D — gpt-5.4"}},
+  {id:"INV-1005", vendor:"Cascade Industrial Supply", po:"PO-5001", total:"75.00",
+   status:"rejected", stampText:"Rejected", failed:1,
+   reason:"Duplicate invoice number", note:"Rejected · \u201Cno way man\u201D",
+   ruleNotes:{1:"invoice_no already exists in Invoice_Drafts"}},
+];
+
+const FIELDS = [
+  {name:"InvoiceId", val:"INV-1001", conf:98.5},
+  {name:"PurchaseOrder", val:"PO-5001", conf:98.4},
+  {name:"VendorName", val:"Cascade Industrial Supply", conf:95.2},
+  {name:"InvoiceDate", val:"2026-07-20", conf:98.1},
+  {name:"Items · ProductCode", val:"A100 / A200", conf:94.0},
+  {name:"Items · Qty / UnitPrice / Amount", val:"10×5.00 · 100×0.25", conf:95.5},
+  {name:"SubTotal", val:"75.00", conf:98.0},
+  {name:"InvoiceTotal", val:"75.00", conf:53.5, warn:true},
+];
+
+// ---------------- Tabs ----------------
+const tabs = document.querySelectorAll("nav button");
+tabs.forEach(b=>b.addEventListener("click",()=>{
+  tabs.forEach(x=>x.classList.toggle("active",x===b));
+  document.querySelectorAll("main section").forEach(s=>s.hidden = (s.id!=="tab-"+b.dataset.tab));
+}));
+
+// ---------------- Queue ----------------
+const qb = document.getElementById("queue-body");
+INVOICES.forEach(inv=>{
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td class="mono">${inv.id}</td>
+    <td>${inv.vendor}</td>
+    <td class="mono">${inv.po}</td>
+    <td class="num-cell">$${inv.total}</td>
+    <td><span class="stamp ${inv.status}">${inv.stampText}</span></td>
+    <td class="reason-cell">${inv.reason ? `<span class="mono" style="font-size:12px">${inv.reason}</span><br>`:""}${inv.note}</td>`;
+  tr.addEventListener("click",()=>{ openTrace(inv.id); tabs[1].click(); });
+  qb.appendChild(tr);
+});
+
+// ---------------- Rules trace ----------------
+const chips = document.getElementById("rule-chips");
+INVOICES.forEach(inv=>{
+  const b=document.createElement("button");
+  b.textContent=inv.id; b.dataset.id=inv.id;
+  b.addEventListener("click",()=>openTrace(inv.id));
+  chips.appendChild(b);
+});
+function openTrace(id){
+  const inv = INVOICES.find(i=>i.id===id);
+  chips.querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
+  const panel = document.getElementById("trace-panel");
+  let rows = "";
+  RULES.forEach(r=>{
+    let cls="pass", mark="✓", note=r.desc;
+    if(inv.failed===r.n){ cls="fail"; mark="✗"; note=inv.ruleNotes[r.n]||inv.reason; }
+    else if(inv.failed!==0 && r.n>inv.failed){ cls="skip"; mark="—"; note="not evaluated — first failure wins"; }
+    rows += `<div class="rule-row ${cls}">
+      <span class="rule-mark">${mark}</span>
+      <span class="rule-name">Rule ${r.n} · ${r.name}</span>
+      <span class="rule-note">${note}</span></div>`;
+  });
+  const verdict = inv.failed===0
+    ? `<span class="stamp ready">Ready</span><span style="font-size:13px;color:#5a6b60">all six checks passed → filed autonomously</span>`
+    : `<span class="stamp ${inv.status}">${inv.stampText}</span><span style="font-size:13px;color:#5a6b60">held on rule ${inv.failed} → routed to a human</span>`;
+  const adv = inv.advisory ? `
+    <div class="advisory">
+      <div class="tag">AI suggestion · advisory only · requires human confirmation</div>
+      <div class="gl">GL ${inv.advisory.gl} <span class="conf-inline">confidence ${inv.advisory.conf}</span></div>
+      <p>${inv.advisory.rationale}</p>
+      <p style="margin-top:6px">This suggestion never sets status. It rides to the Teams card, where a person accepts or overrides it.</p>
+    </div>`:"";
+  panel.innerHTML = `
+    <div class="trace-head">
+      <span class="mono">${inv.id}</span>
+      <span class="mono" style="color:#5a6b60;font-size:13px">${inv.po} · $${inv.total}</span>
+      ${verdict}
+    </div>${rows}${adv}`;
+}
+openTrace("INV-1003");
+
+// ---------------- Field bars ----------------
+const fb = document.getElementById("field-bars");
+FIELDS.forEach(f=>{
+  const div=document.createElement("div");
+  div.className="field";
+  div.innerHTML = `
+    <div class="row1"><span class="fname">${f.name}</span><span class="fval">${f.val}</span></div>
+    <div class="bar ${f.warn?"warn":""}"><i style="width:0%"></i><span class="pct">${f.conf}%</span></div>
+    ${f.warn?`<div class="flagline"><span class="stamp rejected" style="font-size:10px">Never used</span>
+      <span style="font-size:12px;color:#5a6b60">pipeline derives computed_total from line items instead</span></div>`:""}`;
+  fb.appendChild(div);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    div.querySelector(".bar i").style.transition =
+      matchMedia("(prefers-reduced-motion:no-preference)").matches ? "width .7s ease" : "none";
+    div.querySelector(".bar i").style.width = f.conf+"%";
+  }));
+});
+</script>
+</body>
+</html>
