@@ -9,6 +9,7 @@ An accounts-payable intake agent that watches a SharePoint inbox, extracts vendo
 
 - **Solo**
 - Kenny Yukich ([@KtrainUSA503](https://github.com/KtrainUSA503))
+- Team name: The Guy with the Monitor 
 
 ## Category
 
