@@ -1,0 +1,18 @@
+{
+  "_expected": "status: Ready, computed_total: 75, failedRule: 0",
+  "invoice": {
+    "invoice_no": "INV-1001",
+    "vendor_name": "Acme Supply",
+    "po_number": "PO-5001",
+    "lines": [
+      { "item_code": "A100", "description": "Steel brackets", "qty": 10, "unit_price": 5.00, "amount": 50.00 },
+      { "item_code": "A200", "description": "Hex bolts", "qty": 100, "unit_price": 0.25, "amount": 25.00 }
+    ],
+    "fieldConfidence": { "po_number": 0.97, "lines": 0.95 }
+  },
+  "poLines": [
+    { "po_number": "PO-5001", "item_code": "A100", "qty_received": 10, "unit_price": 5.00, "uom_factor": 1 },
+    { "po_number": "PO-5001", "item_code": "A200", "qty_received": 100, "unit_price": 0.25, "uom_factor": 1 }
+  ],
+  "existingInvoiceNos": []
+}
