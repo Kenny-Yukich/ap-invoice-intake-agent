@@ -116,7 +116,7 @@ Modeled on an actual manual AP workflow (email → OCR tool → ERP) observed in
 
 ## About the builder
 
-I'm not a developer. I'm a Lean / continuous-improvement practitioner who moved
+My background is process, not programming — and that's the point of this project. I'm a Lean / continuous-improvement practitioner who moved
 into a tech-adjacent role about six months ago — my background is process, not
 programming. Every line of code in this repo was written with AI coding
 assistants, at this event, with me directing the architecture, testing every
