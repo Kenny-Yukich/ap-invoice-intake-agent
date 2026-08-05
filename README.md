@@ -1,5 +1,5 @@
 # AP Invoice Intake Agent
-**VSLive! Microsoft AI Hackathon 2026 — Solo build**
+**Second Place Winner - Best Copilot Integration - VSLive! Microsoft AI Hackathon 2026 — Solo build**
 
 > **Design principle: the LLM advises, it never decides about money.**
 
