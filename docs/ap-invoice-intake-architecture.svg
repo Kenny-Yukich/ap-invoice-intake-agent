@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">AP Invoice Intake Agent — AI-Assisted Accounts Payable Automation</title>
+  <desc id="diagram-desc">Enterprise solution architecture showing a SharePoint invoice entering Power Automate, Azure AI Document Intelligence extracting fields, a deterministic Azure Function applying six rules, clean invoices filing automatically, held invoices routing to a Teams human approval card, Azure OpenAI providing advisory GL suggestions only, and a grounded Copilot Studio interface reading the same SharePoint operational data.</desc>
+
+  <defs>
+    <linearGradient id="headerGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0F4C81"/>
+      <stop offset="1" stop-color="#0078D4"/>
+    </linearGradient>
+    <linearGradient id="rulesGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAF4FF"/>
+      <stop offset="1" stop-color="#F7FBFF"/>
+    </linearGradient>
+    <linearGradient id="copilotGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3EEFF"/>
+      <stop offset="1" stop-color="#E9F5FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#17324D" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0078D4"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#16825D"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#C4314B"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6B4EFF"/>
+    </marker>
+    <style>
+      .title { font-family: "Segoe UI", Arial, sans-serif; font-size: 36px; font-weight: 700; fill: #102A43; }
+      .subtitle { font-family: "Segoe UI", Arial, sans-serif; font-size: 20px; font-weight: 400; fill: #486581; }
+      .lane { font-family: "Segoe UI", Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.8px; fill: #627D98; }
+      .step { font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; fill: #0078D4; }
+      .card-title { font-family: "Segoe UI", Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #102A43; }
+      .card-sub { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #486581; }
+      .body { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 400; fill: #334E68; }
+      .small { font-family: "Segoe UI", Arial, sans-serif; font-size: 12.5px; font-weight: 400; fill: #486581; }
+      .tiny { font-family: "Segoe UI", Arial, sans-serif; font-size: 11px; font-weight: 600; fill: #627D98; letter-spacing: .4px; }
+      .chip { font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 700; }
+      .flow-label { font-family: "Segoe UI", Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .8px; }
+      .white { fill: #FFFFFF; }
+    </style>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="1920" height="1080" fill="#F7FAFC"/>
+  <rect x="0" y="0" width="1920" height="10" fill="url(#headerGradient)"/>
+
+  <!-- Header -->
+  <text class="title" x="60" y="62">AP Invoice Intake Agent — AI-Assisted Accounts Payable Automation</text>
+  <text class="subtitle" x="60" y="98">Document AI → deterministic three-way matching → human exception handling → grounded Copilot</text>
+
+  <!-- Design philosophy ribbon -->
+  <rect x="60" y="125" width="1800" height="66" rx="18" fill="#FFFFFF" stroke="#D8E4EE"/>
+  <g transform="translate(83 143)">
+    <circle cx="18" cy="15" r="15" fill="#EEE9FF"/>
+    <path d="M11 16h14M18 9v14M13 11l10 10M23 11L13 21" stroke="#6B4EFF" stroke-width="2" stroke-linecap="round"/>
+    <text x="43" y="12" class="tiny" fill="#6B4EFF">AI</text>
+    <text x="43" y="29" class="card-sub" fill="#4A36B8">EXTRACTS</text>
+  </g>
+  <path d="M265 158 H330" stroke="#9FB3C8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <g transform="translate(352 143)">
+    <circle cx="18" cy="15" r="15" fill="#E5F1FB"/>
+    <path d="M10 12h16M10 18h16M14 8l-4 4 4 4M22 14l4 4-4 4" fill="none" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="43" y="12" class="tiny" fill="#0078D4">DETERMINISTIC CODE</text>
+    <text x="43" y="29" class="card-sub" fill="#005A9E">DECIDES</text>
+  </g>
+  <path d="M597 158 H662" stroke="#9FB3C8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <g transform="translate(684 143)">
+    <circle cx="18" cy="15" r="15" fill="#FFF0F1"/>
+    <circle cx="18" cy="11" r="5" fill="none" stroke="#C4314B" stroke-width="2"/>
+    <path d="M9 27c1-7 17-7 18 0" fill="none" stroke="#C4314B" stroke-width="2" stroke-linecap="round"/>
+    <text x="43" y="12" class="tiny" fill="#C4314B">HUMANS</text>
+    <text x="43" y="29" class="card-sub" fill="#A4262C">HANDLE EXCEPTIONS</text>
+  </g>
+  <rect x="1265" y="136" width="575" height="44" rx="12" fill="#102A43"/>
+  <circle cx="1292" cy="158" r="12" fill="#6B4EFF"/>
+  <path d="M1287 158h10M1292 153v10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <text x="1313" y="164" font-family="Segoe UI, Arial" font-size="18" font-weight="700" fill="#FFFFFF">“The LLM advises. It never decides about money.”</text>
+
+  <!-- Main workflow lane -->
+  <text class="lane" x="60" y="232">PRIMARY WORKFLOW · LEFT TO RIGHT</text>
+  <line x1="305" y1="225" x2="1860" y2="225" stroke="#D8E4EE" stroke-width="1"/>
+
+  <!-- Main connectors behind cards -->
+  <path d="M270 390 H310" fill="none" stroke="#0078D4" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M530 390 H570" fill="none" stroke="#0078D4" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M830 390 H870" fill="none" stroke="#0078D4" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M1310 340 H1360" fill="none" stroke="#16825D" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <path d="M1580 340 H1640" fill="none" stroke="#16825D" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <path d="M1310 535 H1360" fill="none" stroke="#C4314B" stroke-width="4" marker-end="url(#arrowRed)"/>
+  <path d="M1580 535 H1640" fill="none" stroke="#C4314B" stroke-width="4" marker-end="url(#arrowRed)"/>
+  <path d="M1265 624 C1300 676 1325 700 1360 700" fill="none" stroke="#6B4EFF" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrowPurple)"/>
+  <path d="M1580 700 C1610 700 1615 650 1640 632" fill="none" stroke="#6B4EFF" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrowPurple)"/>
+
+  <!-- Flow labels -->
+  <text x="1335" y="249" text-anchor="middle" class="flow-label" fill="#0B6A4A">ALL 6 PASS</text>
+  <text x="1335" y="459" text-anchor="middle" class="flow-label" fill="#A4262C">FIRST FAILURE</text>
+  <text x="1170" y="747" class="flow-label" fill="#6B4EFF">UNMATCHED LINE · RULE 3</text>
+
+  <!-- Step 1: Intake -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="300" width="210" height="180" rx="18" fill="#FFFFFF" stroke="#C9DBE8"/>
+  </g>
+  <rect x="60" y="300" width="210" height="7" rx="4" fill="#038387"/>
+  <text class="step" x="80" y="329">01 · INVOICE INTAKE</text>
+  <g transform="translate(80 345)">
+    <rect x="0" y="0" width="42" height="52" rx="5" fill="#E5F6F6" stroke="#038387"/>
+    <path d="M29 0v13h13" fill="#B7E4E4" stroke="#038387"/>
+    <text x="21" y="36" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="800" fill="#006B6E">PDF</text>
+  </g>
+  <text class="card-title" x="136" y="365">Vendor invoice</text>
+  <text class="card-sub" x="136" y="388">PDF document</text>
+  <rect x="80" y="414" width="170" height="42" rx="10" fill="#E8F3F8"/>
+  <circle cx="100" cy="435" r="11" fill="#038387"/>
+  <text x="100" y="439" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="800" fill="#FFFFFF">S</text>
+  <text class="body" x="119" y="440">SharePoint /Inbox</text>
+
+  <!-- Step 2: Orchestration -->
+  <g filter="url(#shadow)">
+    <rect x="310" y="300" width="220" height="180" rx="18" fill="#FFFFFF" stroke="#C9DBE8"/>
+  </g>
+  <rect x="310" y="300" width="220" height="7" rx="4" fill="#0078D4"/>
+  <text class="step" x="330" y="329">02 · ORCHESTRATION</text>
+  <g transform="translate(330 347)">
+    <path d="M0 20L21 0h28L28 20h21L21 42H0l21-22z" fill="#0078D4" opacity=".92"/>
+  </g>
+  <text class="card-title" x="393" y="366">Power Automate</text>
+  <text class="small" x="330" y="409">• File-created trigger</text>
+  <text class="small" x="330" y="432">• Calls extraction + rules</text>
+  <text class="small" x="330" y="455">• Maps data and routes verdict</text>
+
+  <!-- Step 3: Document Intelligence -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="300" width="260" height="180" rx="18" fill="#FFFFFF" stroke="#C9DBE8"/>
+  </g>
+  <rect x="570" y="300" width="260" height="7" rx="4" fill="#6B4EFF"/>
+  <text class="step" x="590" y="329" fill="#6B4EFF">03 · DOCUMENT AI</text>
+  <g transform="translate(590 345)">
+    <rect x="0" y="0" width="44" height="50" rx="6" fill="#EEE9FF" stroke="#6B4EFF"/>
+    <path d="M9 14h26M9 23h18M9 32h23" stroke="#6B4EFF" stroke-width="2" stroke-linecap="round"/>
+    <path d="M0 11V4a4 4 0 014-4h7M33 0h7a4 4 0 014 4v7M44 39v7a4 4 0 01-4 4h-7M11 50H4a4 4 0 01-4-4v-7" fill="none" stroke="#6B4EFF" stroke-width="2"/>
+  </g>
+  <text x="650" y="361" font-family="Segoe UI, Arial" font-size="19" font-weight="700" fill="#102A43">Azure AI</text>
+  <text x="650" y="384" font-family="Segoe UI, Arial" font-size="17" font-weight="700" fill="#102A43">Document Intelligence</text>
+  <text class="small" x="590" y="415">Prebuilt Invoice · API 2024-11-30</text>
+  <text class="small" x="590" y="438">Fields + line items + confidence</text>
+  <rect x="590" y="449" width="220" height="20" rx="10" fill="#F3EEFF"/>
+  <text x="700" y="463" text-anchor="middle" class="tiny" fill="#6B4EFF">PERCEPTION, NOT JUDGMENT</text>
+
+  <!-- Step 4: Rules engine -->
+  <g filter="url(#shadow)">
+    <rect x="870" y="260" width="440" height="460" rx="20" fill="url(#rulesGradient)" stroke="#0078D4" stroke-width="2"/>
+  </g>
+  <rect x="870" y="260" width="440" height="9" rx="4" fill="#0F4C81"/>
+  <text class="step" x="892" y="293">04 · DETERMINISTIC THREE-WAY MATCH</text>
+  <g transform="translate(892 310)">
+    <rect width="48" height="48" rx="12" fill="#0F4C81"/>
+    <text x="24" y="31" text-anchor="middle" font-family="Segoe UI, Arial" font-size="22" font-weight="800" fill="#FFFFFF">ƒx</text>
+  </g>
+  <text class="card-title" x="954" y="330">Azure Function · Rules Engine</text>
+  <text class="card-sub" x="954" y="353">Coded, testable, deterministic verdict</text>
+  <rect x="892" y="374" width="396" height="38" rx="10" fill="#DCEEFF"/>
+  <text x="910" y="398" font-family="Segoe UI, Arial" font-size="15" font-weight="700" fill="#005A9E">computed_total = Σ line-item amounts</text>
+
+  <text class="tiny" x="892" y="439">SIX RULES · IN ORDER · FIRST FAILURE WINS</text>
+  <g class="body">
+    <circle cx="907" cy="467" r="11" fill="#0F4C81"/><text x="907" y="472" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">1</text>
+    <text x="927" y="472">Duplicate invoice check</text>
+    <circle cx="907" cy="499" r="11" fill="#0F4C81"/><text x="907" y="504" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">2</text>
+    <text x="927" y="504">PO exists</text>
+    <circle cx="907" cy="531" r="11" fill="#0F4C81"/><text x="907" y="536" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">3</text>
+    <text x="927" y="536">Every item code matches a PO line</text>
+    <circle cx="907" cy="563" r="11" fill="#0F4C81"/><text x="907" y="568" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">4</text>
+    <text x="927" y="568">Qty billed ≤ qty received</text>
+    <circle cx="907" cy="595" r="11" fill="#0F4C81"/><text x="907" y="600" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">5</text>
+    <text x="927" y="600">Unit price within ±5%</text>
+    <circle cx="907" cy="627" r="11" fill="#0F4C81"/><text x="907" y="632" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">6</text>
+    <text x="927" y="632">Money-field confidence ≥ 0.80</text>
+  </g>
+  <rect x="892" y="659" width="396" height="39" rx="10" fill="#102A43"/>
+  <path d="M911 678l7 7 13-15" fill="none" stroke="#55D6BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="945" y="685" font-family="Segoe UI, Arial" font-size="14" font-weight="700" fill="#FFFFFF">NO LLM MAKES THE VERDICT</text>
+
+  <!-- Ready path -->
+  <g filter="url(#shadow)">
+    <rect x="1360" y="260" width="220" height="165" rx="18" fill="#F1FAF6" stroke="#55B58A" stroke-width="2"/>
+  </g>
+  <rect x="1360" y="260" width="220" height="7" rx="4" fill="#16825D"/>
+  <text class="step" x="1380" y="291" fill="#16825D">PASS PATH</text>
+  <circle cx="1397" cy="326" r="16" fill="#16825D"/>
+  <path d="M1389 326l6 6 11-13" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="card-title" x="1424" y="332">Status: Ready</text>
+  <text class="body" x="1380" y="367">All deterministic rules pass</text>
+  <text class="small" x="1380" y="394">No human touch required</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1640" y="260" width="230" height="165" rx="18" fill="#FFFFFF" stroke="#55B58A" stroke-width="2"/>
+  </g>
+  <rect x="1660" y="278" width="190" height="28" rx="14" fill="#16825D"/>
+  <text x="1755" y="297" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.5" font-weight="700" letter-spacing=".15" fill="#FFFFFF">STRAIGHT-THROUGH PROCESSING</text>
+  <text class="card-title" x="1660" y="338">Automatically filed</text>
+  <text class="body" x="1660" y="369">→ Move PDF to /Filed</text>
+  <text class="body" x="1660" y="395">→ Create record + audit fields</text>
+
+  <!-- Held path -->
+  <g filter="url(#shadow)">
+    <rect x="1360" y="470" width="220" height="145" rx="18" fill="#FFF7F7" stroke="#D86073" stroke-width="2"/>
+  </g>
+  <rect x="1360" y="470" width="220" height="7" rx="4" fill="#C4314B"/>
+  <text class="step" x="1380" y="501" fill="#C4314B">EXCEPTION PATH</text>
+  <circle cx="1397" cy="536" r="16" fill="#C4314B"/>
+  <text x="1397" y="542" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="800" fill="#FFFFFF">!</text>
+  <text class="card-title" x="1424" y="542">Status: Held</text>
+  <text x="1380" y="575" font-family="Segoe UI, Arial" font-size="12.5" fill="#334E68">Specific human-readable reason</text>
+  <text class="tiny" x="1380" y="598" fill="#A4262C">SAFE DEFAULT: MANUAL REVIEW</text>
+
+  <!-- Azure OpenAI advisory -->
+  <g filter="url(#shadow)">
+    <rect x="1360" y="650" width="220" height="115" rx="18" fill="#FAF8FF" stroke="#6B4EFF" stroke-width="2" stroke-dasharray="7 5"/>
+  </g>
+  <circle cx="1392" cy="680" r="16" fill="#6B4EFF"/>
+  <path d="M1385 680h14M1392 673v14M1387 675l10 10M1397 675l-10 10" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+  <text class="card-title" x="1418" y="686">Azure OpenAI</text>
+  <text class="small" x="1380" y="716">GL code + confidence suggestion</text>
+  <rect x="1380" y="730" width="180" height="23" rx="11" fill="#EEE9FF"/>
+  <text x="1470" y="746" text-anchor="middle" class="chip" fill="#5A42D6">ADVISORY ONLY · NON-FATAL</text>
+
+  <!-- Teams human decision -->
+  <g filter="url(#shadow)">
+    <rect x="1640" y="470" width="230" height="295" rx="18" fill="#FFFFFF" stroke="#7B83EB" stroke-width="2"/>
+  </g>
+  <rect x="1640" y="470" width="230" height="7" rx="4" fill="#6264A7"/>
+  <text class="step" x="1660" y="501" fill="#6264A7">HUMAN DECISION SURFACE</text>
+  <rect x="1660" y="516" width="35" height="35" rx="8" fill="#6264A7"/>
+  <text x="1677.5" y="540" text-anchor="middle" font-family="Segoe UI, Arial" font-size="21" font-weight="800" fill="#FFFFFF">T</text>
+  <text class="card-title" x="1707" y="540">Teams card</text>
+  <text class="small" x="1660" y="570">Exception details</text>
+  <text class="small" x="1660" y="591">AI suggestion, if available</text>
+  <text class="small" x="1660" y="612">Reviewer note</text>
+  <rect x="1660" y="628" width="90" height="34" rx="8" fill="#16825D"/>
+  <text x="1705" y="650" text-anchor="middle" class="chip" fill="#FFFFFF">APPROVE</text>
+  <rect x="1760" y="628" width="90" height="34" rx="8" fill="#C4314B"/>
+  <text x="1805" y="650" text-anchor="middle" class="chip" fill="#FFFFFF">REJECT</text>
+  <path d="M1705 663v16" stroke="#16825D" stroke-width="2"/>
+  <path d="M1805 663v16" stroke="#C4314B" stroke-width="2"/>
+  <text x="1705" y="694" text-anchor="middle" class="tiny" fill="#0B6A4A">/Filed</text>
+  <text x="1705" y="711" text-anchor="middle" class="tiny" fill="#0B6A4A">+ audit</text>
+  <text x="1805" y="694" text-anchor="middle" class="tiny" fill="#A4262C">/Rejected</text>
+  <text x="1805" y="711" text-anchor="middle" class="tiny" fill="#A4262C">+ audit</text>
+  <rect x="1660" y="729" width="190" height="23" rx="11" fill="#EEEFFC"/>
+  <text x="1755" y="745" text-anchor="middle" class="tiny" fill="#4B4E90">POST-AND-WAIT · AUDITABLE</text>
+
+  <!-- Lower interaction/data layer -->
+  <rect x="40" y="805" width="1840" height="235" rx="24" fill="#EEF4F8" stroke="#D8E4EE"/>
+  <text class="lane" x="60" y="834">SHARED INTERACTION + OPERATIONAL DATA LAYER</text>
+  <line x1="455" y1="827" x2="1860" y2="827" stroke="#C9DBE8" stroke-width="1"/>
+
+  <!-- Copilot card -->
+  <rect x="60" y="850" width="610" height="165" rx="18" fill="url(#copilotGradient)" stroke="#8874E8"/>
+  <g transform="translate(82 868)">
+    <path d="M20 2c10 0 17 7 17 16 0 7-5 13-12 15-4 10-19 12-26 2-7-1-12-6-12-13 0-9 8-15 17-14 4-4 9-6 16-6z" fill="none" stroke="#6B4EFF" stroke-width="4" transform="translate(13 0)"/>
+    <path d="M17 14c7-7 18-4 20 4M16 28c6 6 17 4 20-4" fill="none" stroke="#00A4EF" stroke-width="3" stroke-linecap="round" transform="translate(13 0)"/>
+  </g>
+  <text class="card-title" x="145" y="882">Copilot Studio Agent in Microsoft Teams</text>
+  <text class="small" x="145" y="905">Entra authenticated · General knowledge OFF · Grounded in SharePoint</text>
+  <rect x="82" y="922" width="170" height="32" rx="16" fill="#FFFFFF" stroke="#D8CEFF"/>
+  <text x="167" y="943" text-anchor="middle" class="small">“What’s waiting on me?”</text>
+  <rect x="264" y="922" width="176" height="32" rx="16" fill="#FFFFFF" stroke="#D8CEFF"/>
+  <text x="352" y="943" text-anchor="middle" class="small">“Why is INV-1002 held?”</text>
+  <rect x="452" y="922" width="196" height="32" rx="16" fill="#FFFFFF" stroke="#D8CEFF"/>
+  <text x="550" y="943" text-anchor="middle" class="small">Explain status + exception</text>
+  <rect x="82" y="968" width="566" height="30" rx="10" fill="#FFFFFF" opacity=".82"/>
+  <text x="365" y="988" text-anchor="middle" class="chip" fill="#5A42D6">READ · EXPLAIN · QUERY THE AP QUEUE — NOT THE FINANCIAL DECISION ENGINE</text>
+
+  <!-- Read-only connection -->
+  <path d="M670 930 H735" stroke="#6B4EFF" stroke-width="3" stroke-dasharray="7 6" marker-start="url(#arrowPurple)" marker-end="url(#arrowPurple)"/>
+  <rect x="679" y="897" width="48" height="22" rx="11" fill="#EEE9FF"/>
+  <text x="703" y="912" text-anchor="middle" class="tiny" fill="#5A42D6">QUERY</text>
+
+  <!-- SharePoint data plane -->
+  <rect x="735" y="850" width="1125" height="165" rx="18" fill="#FFFFFF" stroke="#038387" stroke-width="1.5"/>
+  <rect x="735" y="850" width="11" height="165" rx="5" fill="#038387"/>
+  <circle cx="780" cy="882" r="19" fill="#038387"/>
+  <text x="780" y="889" text-anchor="middle" font-family="Segoe UI, Arial" font-size="18" font-weight="800" fill="#FFFFFF">S</text>
+  <text class="card-title" x="812" y="881">SharePoint · Shared system of record</text>
+  <text class="small" x="812" y="903">The flow and Copilot operate over the same invoice, purchasing, receiving, status, and decision data.</text>
+
+  <rect x="765" y="925" width="320" height="68" rx="12" fill="#E8F6F6"/>
+  <text class="tiny" x="785" y="946" fill="#006B6E">DOCUMENT LIBRARIES · LIFECYCLE</text>
+  <rect x="785" y="958" width="82" height="24" rx="12" fill="#FFFFFF" stroke="#7AC7C9"/>
+  <text x="826" y="974" text-anchor="middle" class="chip" fill="#006B6E">/Inbox</text>
+  <rect x="878" y="958" width="82" height="24" rx="12" fill="#E3F5ED" stroke="#55B58A"/>
+  <text x="919" y="974" text-anchor="middle" class="chip" fill="#0B6A4A">/Filed</text>
+  <rect x="971" y="958" width="94" height="24" rx="12" fill="#FDE7E9" stroke="#D86073"/>
+  <text x="1018" y="974" text-anchor="middle" class="chip" fill="#A4262C">/Rejected</text>
+
+  <rect x="1105" y="925" width="400" height="68" rx="12" fill="#EEF6FD"/>
+  <text class="tiny" x="1125" y="946" fill="#005A9E">INVOICE_DRAFTS · OPERATIONAL RECORD</text>
+  <text class="small" x="1125" y="968">Invoice record · status · exception reason · computed total</text>
+  <text class="small" x="1125" y="987">GL suggestion · reviewer decision + audit fields</text>
+
+  <rect x="1525" y="925" width="315" height="68" rx="12" fill="#F4F7FA"/>
+  <text class="tiny" x="1545" y="946">PO_LINES · PO + RECEIVING DATA</text>
+  <text class="small" x="1545" y="968">PO number · item code · unit price</text>
+  <text class="small" x="1545" y="987">quantity received · UOM factor</text>
+
+  <!-- Operational-data cue from workflow -->
+  <path d="M420 480 V785 H1285 V805" fill="none" stroke="#7B93A8" stroke-width="2" stroke-dasharray="6 7" marker-end="url(#arrowBlue)" opacity=".8"/>
+  <rect x="585" y="773" width="336" height="24" rx="12" fill="#FFFFFF" stroke="#D8E4EE"/>
+  <text x="753" y="789" text-anchor="middle" class="tiny">POWER AUTOMATE READS + WRITES SHAREPOINT DATA</text>
+
+  <!-- Footer note -->
+  <text x="1860" y="1064" text-anchor="end" class="tiny">IMPLEMENTED ARCHITECTURE · AZURE FUNCTIONS (NODE.JS) · POWER AUTOMATE · MICROSOFT 365</text>
+</svg>
