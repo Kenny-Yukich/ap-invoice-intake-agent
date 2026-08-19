@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family='&quot;Segoe UI&quot;,Carlito,&quot;Liberation Sans&quot;,Roboto,Arial,sans-serif'>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F3F7FB"/></linearGradient>
+<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#0F6CBD"/><stop offset="0.5" stop-color="#6E56CF"/><stop offset="1" stop-color="#0B7C7B"/></linearGradient>
+<filter id="sh" x="-25%" y="-25%" width="150%" height="160%">
+  <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0A2540" flood-opacity="0.10"/></filter>
+<marker id="a-b" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path d="M0 1 L9 5 L0 9 z" fill="#0F6CBD"/></marker>
+<marker id="a-g" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path d="M0 1 L9 5 L0 9 z" fill="#107C41"/></marker>
+<marker id="a-r" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <path d="M0 1 L9 5 L0 9 z" fill="#C4314B"/></marker>
+<marker id="a-p" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse">
+  <path d="M0 1 L9 5 L0 9 z" fill="#8661C5"/></marker>
+<marker id="a-n" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse">
+  <path d="M0 1 L9 5 L0 9 z" fill="#98A7B8"/></marker>
+</defs>
+<rect x="0.0" y="0.0" width="1920.0" height="1080.0" rx="0" fill="url(#bg)" stroke="none"/>
+<rect x="0.0" y="0.0" width="1920.0" height="6.0" rx="0" fill="url(#rule)" stroke="none"/>
+<text x="56.0" y="62.0" font-size="37" font-weight="700" fill="#101828" letter-spacing="-0.3">AP Invoice Intake Agent — AI-Assisted Accounts Payable Automation</text>
+<text x="56.0" y="96.0" font-size="17.5" fill="#3C4655">Document AI → deterministic three-way matching → human exception handling → grounded Copilot</text>
+<rect x="1536.1" y="40.0" width="327.9" height="56.0" rx="12" fill="#FFFFFF" stroke="#DCE7F3"/>
+<g transform="translate(1555.07,57.00) scale(0.9170)" fill="none" stroke="#0F6CBD" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 4h9.2v5.2a4.6 4.6 0 0 1-9.2 0z"/><path d="M7.4 5.4H4.8v1.4a3 3 0 0 0 2.6 2.9M16.6 5.4h2.6v1.4a3 3 0 0 1-2.6 2.9"/><path d="M12 13.8v3.4M8.8 20.4h6.4"/></g>
+<text x="1590.1" y="64.0" font-size="13" font-weight="700" fill="#0A4C88">Second Place · Best Copilot Integration</text>
+<text x="1590.1" y="82.0" font-size="12" fill="#6B7684">VSLive! Microsoft AI Hackathon 2026 · solo build</text>
+<rect x="56.0" y="116.0" width="1808.0" height="62.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/>
+<g transform="translate(87.54,137.54) scale(0.7886)" fill="none" stroke="#6E56CF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8v18.4M2.8 12h18.4M5.5 5.5l13 13M18.5 5.5l-13 13" stroke="#6E56CF" stroke-width="2.1"/></g>
+<text x="120.0" y="142.0" font-size="10" font-weight="700" fill="#98A2B3" letter-spacing="1.1">AI</text>
+<text x="120.0" y="160.0" font-size="15" font-weight="700" fill="#101828">EXTRACTS</text>
+<line x1="217.8375" y1="147.0" x2="263.8375" y2="147.0" stroke="#98A7B8" stroke-width="2" marker-end="url(#a-n)"/>
+<g transform="translate(289.38,137.54) scale(0.7886)" fill="none" stroke="#0F6CBD" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 20.6V8.2a3 3 0 0 1 3-3h1.4M4.8 11.8h7.4"/><path d="M13.8 11.6l5.6 8.4M19.4 11.6l-5.6 8.4"/></g>
+<text x="321.8" y="142.0" font-size="10" font-weight="700" fill="#98A2B3" letter-spacing="1.1">DETERMINISTIC CODE</text>
+<text x="321.8" y="160.0" font-size="15" font-weight="700" fill="#101828">DECIDES</text>
+<line x1="449.34125" y1="147.0" x2="495.34125" y2="147.0" stroke="#98A7B8" stroke-width="2" marker-end="url(#a-n)"/>
+<g transform="translate(520.88,137.54) scale(0.7886)" fill="none" stroke="#C4314B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.7"/><path d="M4.6 20.4c0-3.9 3.3-6.4 7.4-6.4s7.4 2.5 7.4 6.4"/></g>
+<text x="553.3" y="142.0" font-size="10" font-weight="700" fill="#98A2B3" letter-spacing="1.1">HUMANS</text>
+<text x="553.3" y="160.0" font-size="15" font-weight="700" fill="#101828">HANDLE EXCEPTIONS</text>
+<rect x="1338.9" y="125.0" width="513.1" height="44.0" rx="11" fill="#0B2545" stroke="none"/>
+<g transform="translate(1360.97,139.08) scale(0.6602)" fill="none" stroke="#4CC38A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.4" fill="#4CC38A" stroke="none"/><path d="M7.6 12.2l3.1 3.1 5.9-6.4" stroke="#FFFFFF" stroke-width="2.2"/></g>
+<text x="1390.9" y="154.0" font-size="19" font-weight="700" fill="#FFFFFF">“The LLM advises. It never decides about money.”</text>
+<text x="56.0" y="210.0" font-size="11.5" font-weight="700" fill="#98A2B3" letter-spacing="1.4">PRIMARY WORKFLOW · LEFT TO RIGHT</text>
+<line x1="274.0" y1="463.0" x2="304.0" y2="463.0" stroke="#0F6CBD" stroke-width="2.6" marker-end="url(#a-b)"/>
+<line x1="540.0" y1="463.0" x2="570.0" y2="463.0" stroke="#0F6CBD" stroke-width="2.6" marker-end="url(#a-b)"/>
+<line x1="816.0" y1="463.0" x2="846.0" y2="463.0" stroke="#0F6CBD" stroke-width="2.6" marker-end="url(#a-b)"/>
+<line x1="1204.0" y1="301.5" x2="1286.0" y2="301.5" stroke="#107C41" stroke-width="2.6" marker-end="url(#a-g)"/>
+<line x1="1534.0" y1="301.5" x2="1600.0" y2="301.5" stroke="#107C41" stroke-width="2.6" marker-end="url(#a-g)"/>
+<line x1="1204.0" y1="511.5" x2="1286.0" y2="511.5" stroke="#C4314B" stroke-width="2.6" marker-end="url(#a-r)"/>
+<line x1="1534.0" y1="511.5" x2="1600.0" y2="511.5" stroke="#C4314B" stroke-width="2.6" marker-end="url(#a-r)"/>
+<path d="M1134 712 V757.0 H1286" fill="none" stroke="#8661C5" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#a-p)"/>
+<path d="M1530 757.0 H1648 V692" fill="none" stroke="#8661C5" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#a-p)"/>
+<path d="M422.0 608 V806 H1164 V824" fill="none" stroke="#98A7B8" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#a-n)"/>
+<g filter="url(#sh)"><rect x="56.0" y="318.0" width="210.0" height="290.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c1"><rect x="56.0" y="318.0" width="210.0" height="290.0" rx="14"/></clipPath>
+<rect x="56.0" y="318.0" width="210.0" height="5" fill="#0B7C7B" clip-path="url(#c1)"/>
+<text x="74.0" y="352.0" font-size="11" font-weight="700" fill="#08605F" letter-spacing="1.1">01 · INVOICE INTAKE</text>
+<rect x="75.0" y="375.0" width="34.0" height="34.0" rx="9.0" fill="#E8F5F5"/>
+<g transform="translate(81.00,381.00) scale(0.9170)" fill="none" stroke="#0B7C7B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 2.6h8.6l5 5v13.8a1.6 1.6 0 0 1-1.6 1.6H5.4a1.6 1.6 0 0 1-1.6-1.6V4.2a1.6 1.6 0 0 1 1.6-1.6z"/><path d="M13.8 2.8v5h5"/><path d="M7.6 13.4h8M7.6 17h5.6"/></g>
+<text x="116.0" y="388.0" font-size="17" font-weight="700" fill="#101828">Vendor invoice</text>
+<text x="116.0" y="407.0" font-size="12.5" fill="#6B7684">PDF document</text>
+<rect x="72.0" y="420.0" width="178.0" height="30.0" rx="8" fill="#E8F5F5" stroke="none"/>
+<g transform="translate(81.18,428.18) scale(0.5685)" fill="none" stroke="#0B7C7B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.6" fill="#0B7C7B" stroke="none"/><path d="M14.8 9.1c-.6-.9-1.7-1.4-2.9-1.4-1.7 0-2.9.9-2.9 2.2 0 3 6.1 1.6 6.1 4.6 0 1.4-1.3 2.4-3.1 2.4-1.4 0-2.6-.5-3.2-1.5" stroke="#FFFFFF" stroke-width="1.9"/></g>
+<text x="103.0" y="440.0" font-size="12.8" font-weight="700" fill="#08605F">SharePoint /Inbox</text>
+<circle cx="77.0" cy="470.0" r="2.6" fill="#0B7C7B"/>
+<text x="87.0" y="474.0" font-size="12.3" fill="#3C4655">Watched document library</text>
+<circle cx="77.0" cy="493.0" r="2.6" fill="#0B7C7B"/>
+<text x="87.0" y="497.0" font-size="12.3" fill="#3C4655">Synthetic fixture invoices</text>
+<rect x="72.0" y="568.0" width="115.6" height="22.0" rx="11.0" fill="#E8F5F5" stroke="none"/>
+<text x="129.8" y="582.8" font-size="10.5" font-weight="700" fill="#08605F" text-anchor="middle" letter-spacing="0.7">SYSTEM OF RECORD</text>
+<g filter="url(#sh)"><rect x="312.0" y="318.0" width="220.0" height="290.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c2"><rect x="312.0" y="318.0" width="220.0" height="290.0" rx="14"/></clipPath>
+<rect x="312.0" y="318.0" width="220.0" height="5" fill="#0B53CE" clip-path="url(#c2)"/>
+<text x="330.0" y="352.0" font-size="11" font-weight="700" fill="#0A3E9B" letter-spacing="1.1">02 · ORCHESTRATION</text>
+<rect x="331.0" y="375.0" width="34.0" height="34.0" rx="9.0" fill="#EDF1FE"/>
+<g transform="translate(337.00,381.00) scale(0.9170)" fill="none" stroke="#0B53CE" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2.6L5 12.8h5.2L9.4 21.4 18.6 10.4h-5.4z" fill="#0B53CE" stroke="#0B53CE" stroke-width="1.6"/></g>
+<text x="372.0" y="397.0" font-size="17" font-weight="700" fill="#101828">Power Automate</text>
+<circle cx="333.0" cy="436.0" r="2.6" fill="#0B53CE"/>
+<text x="343.0" y="440.0" font-size="12.3" fill="#3C4655">Trigger: new file in /Inbox</text>
+<circle cx="333.0" cy="458.0" r="2.6" fill="#0B53CE"/>
+<text x="343.0" y="462.0" font-size="12.3" fill="#3C4655">Analyze Document (DI v4.x)</text>
+<circle cx="333.0" cy="480.0" r="2.6" fill="#0B53CE"/>
+<text x="343.0" y="484.0" font-size="12.3" fill="#3C4655">Get PO_Lines + Invoice_Drafts</text>
+<circle cx="333.0" cy="502.0" r="2.6" fill="#0B53CE"/>
+<text x="343.0" y="506.0" font-size="12.3" fill="#3C4655">Select_Lines → flat lines[]</text>
+<circle cx="333.0" cy="524.0" r="2.6" fill="#0B53CE"/>
+<text x="343.0" y="528.0" font-size="12.3" fill="#3C4655">POST to Function · branch</text>
+<rect x="328.0" y="568.0" width="180.3" height="22.0" rx="11.0" fill="#EDF1FE" stroke="none"/>
+<text x="418.2" y="582.8" font-size="10.5" font-weight="700" fill="#0A3E9B" text-anchor="middle" letter-spacing="0.7">ORCHESTRATION ONLY · NO RULES</text>
+<g filter="url(#sh)"><rect x="578.0" y="318.0" width="230.0" height="290.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c3"><rect x="578.0" y="318.0" width="230.0" height="290.0" rx="14"/></clipPath>
+<rect x="578.0" y="318.0" width="230.0" height="5" fill="#6E56CF" clip-path="url(#c3)"/>
+<text x="596.0" y="352.0" font-size="11" font-weight="700" fill="#4B3A9A" letter-spacing="1.1">03 · DOCUMENT AI</text>
+<rect x="597.0" y="375.0" width="34.0" height="34.0" rx="9.0" fill="#F1EEFC"/>
+<g transform="translate(603.00,381.00) scale(0.9170)" fill="none" stroke="#6E56CF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 7.6V4.4a1 1 0 0 1 1-1h3.2M16.4 3.4h3.2a1 1 0 0 1 1 1v3.2M20.6 16.4v3.2a1 1 0 0 1-1 1h-3.2M7.6 20.6H4.4a1 1 0 0 1-1-1v-3.2"/><path d="M7.6 9.4h8.8M7.6 12.6h8.8M7.6 15.8h5.6"/></g>
+<text x="638.0" y="388.0" font-size="15.5" font-weight="700" fill="#101828">Azure AI Document</text>
+<text x="638.0" y="407.0" font-size="15.5" font-weight="700" fill="#101828">Intelligence</text>
+<text x="596.0" y="436.0" font-size="11.4" fill="#4B3A9A" font-family='&quot;Cascadia Mono&quot;,Consolas,&quot;DejaVu Sans Mono&quot;,&quot;Liberation Mono&quot;,monospace'>prebuilt-invoice · API 2024-11-30</text>
+<circle cx="599.0" cy="456.0" r="2.6" fill="#6E56CF"/>
+<text x="609.0" y="460.0" font-size="12.3" fill="#3C4655">Fields + line items</text>
+<circle cx="599.0" cy="478.0" r="2.6" fill="#6E56CF"/>
+<text x="609.0" y="482.0" font-size="12.3" fill="#3C4655">Per-field confidence scores</text>
+<circle cx="599.0" cy="500.0" r="2.6" fill="#6E56CF"/>
+<text x="609.0" y="504.0" font-size="12.3" fill="#3C4655">Pages parameter set</text>
+<text x="609.0" y="521.0" font-size="12.3" fill="#3C4655">(multi-invoice guard)</text>
+<rect x="594.0" y="568.0" width="161.1" height="22.0" rx="11.0" fill="#F1EEFC" stroke="none"/>
+<text x="674.5" y="582.8" font-size="10.5" font-weight="700" fill="#4B3A9A" text-anchor="middle" letter-spacing="0.7">PERCEPTION, NOT JUDGMENT</text>
+<g filter="url(#sh)"><rect x="854.0" y="214.0" width="340.0" height="498.0" rx="14" fill="#FBFDFF" stroke="#BBD6EE"/></g>
+<clipPath id="c4"><rect x="854.0" y="214.0" width="340.0" height="498.0" rx="14"/></clipPath>
+<rect x="854.0" y="214.0" width="340.0" height="5" fill="#0F6CBD" clip-path="url(#c4)"/>
+<text x="874.0" y="248.0" font-size="11" font-weight="700" fill="#0A4C88" letter-spacing="1.1">04 · DETERMINISTIC THREE-WAY MATCH</text>
+<rect x="874.5" y="270.4" width="39.1" height="39.1" rx="10.3" fill="#EAF3FB"/>
+<g transform="translate(881.35,277.35) scale(1.0545)" fill="none" stroke="#0F6CBD" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 20.6V8.2a3 3 0 0 1 3-3h1.4M4.8 11.8h7.4"/><path d="M13.8 11.6l5.6 8.4M19.4 11.6l-5.6 8.4"/></g>
+<text x="924.0" y="286.0" font-size="18" font-weight="700" fill="#101828">Azure Function · Rules Engine</text>
+<text x="924.0" y="306.0" font-size="11.4" fill="#0A4C88" font-family='&quot;Cascadia Mono&quot;,Consolas,&quot;DejaVu Sans Mono&quot;,&quot;Liberation Mono&quot;,monospace'>Node.js · HTTP · authLevel: function</text>
+<rect x="874.0" y="320.0" width="300.0" height="32.0" rx="9" fill="#DEEDFA" stroke="none"/>
+<text x="1024.0" y="341.0" font-size="12.8" font-weight="700" fill="#0A4C88" text-anchor="middle" font-family='&quot;Cascadia Mono&quot;,Consolas,&quot;DejaVu Sans Mono&quot;,&quot;Liberation Mono&quot;,monospace'>computed_total = Σ line-item amounts</text>
+<text x="874.0" y="374.0" font-size="11.2" fill="#6B7684">Extracted InvoiceTotal measured ~41% confidence on zero-tax</text>
+<text x="874.0" y="389.0" font-size="11.2" fill="#6B7684">invoices; line items measured 92–98%. The total is never trusted.</text>
+<text x="874.0" y="417.0" font-size="10.5" font-weight="700" fill="#98A2B3" letter-spacing="1.2">SIX RULES · IN ORDER · FIRST FAILURE WINS</text>
+<circle cx="886" cy="447" r="10.5" fill="#0F6CBD"/>
+<text x="886.0" y="451.4" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="904.0" y="451.0" font-size="12.8" fill="#3C4655">Invoice number not already processed</text>
+<circle cx="886" cy="482" r="10.5" fill="#0F6CBD"/>
+<text x="886.0" y="486.4" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="904.0" y="486.0" font-size="12.8" fill="#3C4655">PO exists</text>
+<circle cx="886" cy="517" r="10.5" fill="#0F6CBD"/>
+<text x="886.0" y="521.4" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="904.0" y="521.0" font-size="12.8" fill="#3C4655">Every line matches a PO line by item code</text>
+<circle cx="886" cy="552" r="10.5" fill="#0F6CBD"/>
+<text x="886.0" y="556.4" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="904.0" y="556.0" font-size="12.8" fill="#3C4655">Qty billed ≤ qty received</text>
+<circle cx="886" cy="587" r="10.5" fill="#0F6CBD"/>
+<text x="886.0" y="591.4" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="904.0" y="591.0" font-size="12.8" fill="#3C4655">Unit price within ±5% of PO price</text>
+<circle cx="886" cy="622" r="10.5" fill="#0F6CBD"/>
+<text x="886.0" y="626.4" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">6</text>
+<text x="904.0" y="626.0" font-size="12.8" fill="#3C4655">Money-field confidence ≥ 0.80</text>
+<rect x="874.0" y="656.0" width="300.0" height="38.0" rx="10" fill="#0B2545" stroke="none"/>
+<g transform="translate(891.18,668.18) scale(0.5685)" fill="none" stroke="#4CC38A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.4" fill="#4CC38A" stroke="none"/><path d="M7.6 12.2l3.1 3.1 5.9-6.4" stroke="#FFFFFF" stroke-width="2.2"/></g>
+<text x="916.0" y="680.0" font-size="13.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.6">NO LLM MAKES THE VERDICT</text>
+<g filter="url(#sh)"><rect x="1294.0" y="214.0" width="230.0" height="175.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c5"><rect x="1294.0" y="214.0" width="230.0" height="175.0" rx="14"/></clipPath>
+<rect x="1294.0" y="214.0" width="230.0" height="5" fill="#107C41" clip-path="url(#c5)"/>
+<text x="1312.0" y="246.0" font-size="11" font-weight="700" fill="#0B5C30" letter-spacing="1.1">PASS PATH</text>
+<g transform="translate(1317.88,267.88) scale(0.8436)" fill="none" stroke="#107C41" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.4" fill="#107C41" stroke="none"/><path d="M7.6 12.2l3.1 3.1 5.9-6.4" stroke="#FFFFFF" stroke-width="2.2"/></g>
+<text x="1352.0" y="284.0" font-size="18" font-weight="700" fill="#101828">Status: Ready</text>
+<circle cx="1315.0" cy="314.0" r="2.6" fill="#107C41"/>
+<text x="1325.0" y="318.0" font-size="12.4" fill="#3C4655">All six rules pass</text>
+<circle cx="1315.0" cy="336.0" r="2.6" fill="#107C41"/>
+<text x="1325.0" y="340.0" font-size="12.4" fill="#3C4655">No human touch required</text>
+<rect x="1310.0" y="351.0" width="95.1" height="22.0" rx="11.0" fill="#EBF7EF" stroke="none"/>
+<text x="1357.6" y="365.8" font-size="10.5" font-weight="700" fill="#0B5C30" text-anchor="middle" letter-spacing="0.7">AUTONOMOUS</text>
+<g filter="url(#sh)"><rect x="1608.0" y="214.0" width="250.0" height="175.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c6"><rect x="1608.0" y="214.0" width="250.0" height="175.0" rx="14"/></clipPath>
+<rect x="1608.0" y="214.0" width="250.0" height="5" fill="#107C41" clip-path="url(#c6)"/>
+<rect x="1624.0" y="234.0" width="178.4" height="24.0" rx="12.0" fill="#107C41" stroke="none"/>
+<text x="1713.2" y="249.8" font-size="10.5" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.7">STRAIGHT-THROUGH PROCESSING</text>
+<text x="1626.0" y="288.0" font-size="18" font-weight="700" fill="#101828">Automatically filed</text>
+<circle cx="1629.0" cy="314.0" r="2.6" fill="#107C41"/>
+<text x="1639.0" y="318.0" font-size="12.4" fill="#3C4655">PDF moves /Inbox → /Filed</text>
+<circle cx="1629.0" cy="336.0" r="2.6" fill="#107C41"/>
+<text x="1639.0" y="340.0" font-size="12.4" fill="#3C4655">Invoice_Drafts record written</text>
+<circle cx="1629.0" cy="358.0" r="2.6" fill="#107C41"/>
+<text x="1639.0" y="362.0" font-size="12.4" fill="#3C4655">Status + audit fields recorded</text>
+<g filter="url(#sh)"><rect x="1294.0" y="424.0" width="230.0" height="175.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c7"><rect x="1294.0" y="424.0" width="230.0" height="175.0" rx="14"/></clipPath>
+<rect x="1294.0" y="424.0" width="230.0" height="5" fill="#C4314B" clip-path="url(#c7)"/>
+<text x="1312.0" y="456.0" font-size="11" font-weight="700" fill="#93233A" letter-spacing="1.1">EXCEPTION PATH</text>
+<g transform="translate(1317.88,477.88) scale(0.8436)" fill="none" stroke="#C4314B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.4" fill="#C4314B" stroke="none"/><path d="M12 7.2v6.2" stroke="#FFFFFF" stroke-width="2.2"/><circle cx="12" cy="16.6" r="1.35" fill="#FFFFFF" stroke="none"/></g>
+<text x="1352.0" y="494.0" font-size="18" font-weight="700" fill="#101828">Status: Held</text>
+<circle cx="1315.0" cy="524.0" r="2.6" fill="#C4314B"/>
+<text x="1325.0" y="528.0" font-size="12.4" fill="#3C4655">First failing rule wins</text>
+<circle cx="1315.0" cy="546.0" r="2.6" fill="#C4314B"/>
+<text x="1325.0" y="550.0" font-size="12.4" fill="#3C4655">Specific human-readable reason</text>
+<rect x="1310.0" y="561.0" width="176.0" height="22.0" rx="11.0" fill="#FDEDEF" stroke="none"/>
+<text x="1398.0" y="575.8" font-size="10.5" font-weight="700" fill="#93233A" text-anchor="middle" letter-spacing="0.7">SAFE DEFAULT · MANUAL REVIEW</text>
+<g filter="url(#sh)"><rect x="1608.0" y="424.0" width="250.0" height="260.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c8"><rect x="1608.0" y="424.0" width="250.0" height="260.0" rx="14"/></clipPath>
+<rect x="1608.0" y="424.0" width="250.0" height="5" fill="#5B5FC7" clip-path="url(#c8)"/>
+<text x="1626.0" y="456.0" font-size="11" font-weight="700" fill="#3F43A0" letter-spacing="1.1">HUMAN DECISION SURFACE</text>
+<g transform="translate(1631.88,477.88) scale(0.8436)" fill="none" stroke="#5B5FC7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4.6" fill="#5B5FC7" stroke="none"/><path d="M8.2 8.6h7.6M12 8.6v7.2" stroke="#FFFFFF" stroke-width="2.1"/></g>
+<text x="1666.0" y="494.0" font-size="16" font-weight="700" fill="#101828">Teams adaptive card</text>
+<circle cx="1629.0" cy="520.0" r="2.6" fill="#5B5FC7"/>
+<text x="1639.0" y="524.0" font-size="12.2" fill="#3C4655">Exception reason</text>
+<circle cx="1629.0" cy="540.0" r="2.6" fill="#5B5FC7"/>
+<text x="1639.0" y="544.0" font-size="12.2" fill="#3C4655">AI suggestion, if available</text>
+<circle cx="1629.0" cy="560.0" r="2.6" fill="#5B5FC7"/>
+<text x="1639.0" y="564.0" font-size="12.2" fill="#3C4655">Reviewer note</text>
+<rect x="1626.0" y="588.0" width="102.0" height="32.0" rx="8" fill="#107C41" stroke="none"/>
+<text x="1677.0" y="609.0" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.6">APPROVE</text>
+<rect x="1738.0" y="588.0" width="102.0" height="32.0" rx="8" fill="#C4314B" stroke="none"/>
+<text x="1789.0" y="609.0" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.6">REJECT</text>
+<text x="1677.0" y="638.0" font-size="11.6" fill="#0B5C30" text-anchor="middle">/Filed + audit row</text>
+<text x="1789.0" y="638.0" font-size="11.6" fill="#93233A" text-anchor="middle">/Rejected + audit row</text>
+<rect x="1624.0" y="646.0" width="172.2" height="22.0" rx="11.0" fill="#EEEFFC" stroke="none"/>
+<text x="1710.1" y="660.8" font-size="10.5" font-weight="700" fill="#3F43A0" text-anchor="middle" letter-spacing="0.7">POST-AND-WAIT · ONE DECISION</text>
+<rect x="1294.0" y="694.0" width="230.0" height="126.0" rx="14" fill="#FCFAFF" stroke="#8661C5" stroke-dasharray="7 5"/>
+<text x="1312.0" y="720.0" font-size="10.2" font-weight="700" fill="#5B3F97" letter-spacing="0.9">RULE 3 ONLY · UNMATCHED LINE</text>
+<rect x="1312.4" y="732.4" width="27.2" height="27.2" rx="7.2" fill="#F3EFFB"/>
+<g transform="translate(1317.20,737.20) scale(0.7336)" fill="none" stroke="#8661C5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8v18.4M2.8 12h18.4M5.5 5.5l13 13M18.5 5.5l-13 13" stroke="#8661C5" stroke-width="2.1"/></g>
+<text x="1348.0" y="752.0" font-size="15.5" font-weight="700" fill="#101828">Azure OpenAI</text>
+<text x="1312.0" y="776.0" font-size="12" fill="#3C4655">Proposes a GL code + confidence</text>
+<rect x="1310.0" y="788.0" width="156.8" height="21.0" rx="10.5" fill="#F3EFFB" stroke="none"/>
+<text x="1388.4" y="802.3" font-size="10.5" font-weight="700" fill="#5B3F97" text-anchor="middle" letter-spacing="0.7">ADVISORY ONLY · NON-FATAL</text>
+<rect x="56.0" y="830.0" width="1808.0" height="202.0" rx="16" fill="#EFF4F9" stroke="#DFE8F1"/>
+<text x="78.0" y="858.0" font-size="11.5" font-weight="700" fill="#98A2B3" letter-spacing="1.4">SHARED INTERACTION + OPERATIONAL DATA LAYER</text>
+<g filter="url(#sh)"><rect x="78.0" y="872.0" width="560.0" height="140.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c10"><rect x="78.0" y="872.0" width="560.0" height="140.0" rx="14"/></clipPath>
+<rect x="78.0" y="872.0" width="560.0" height="5" fill="#5B5FC7" clip-path="url(#c10)"/>
+<rect x="95.0" y="889.0" width="34.0" height="34.0" rx="9.0" fill="#EEEFFC"/>
+<g transform="translate(101.00,895.00) scale(0.9170)" fill="none" stroke="#5B5FC7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.4 15.4a4.6 4.6 0 0 1 3.2-7.9 5.6 5.6 0 0 1 10.4 1 4.4 4.4 0 0 1-1.4 8.6H8.6a4.3 4.3 0 0 1-4.2-1.7z"/><path d="M9.4 12.6c1.4 2 3.8 2 5.2 0"/></g>
+<text x="136.0" y="906.0" font-size="16.5" font-weight="700" fill="#101828">Copilot Studio agent in Microsoft Teams</text>
+<text x="136.0" y="925.0" font-size="11.8" fill="#6B7684">Entra authenticated · general knowledge OFF · grounded in SharePoint</text>
+<rect x="96.0" y="938.0" width="157.5" height="30.0" rx="8" fill="#F5F7FD" stroke="#E1E5F6"/>
+<text x="174.8" y="958.0" font-size="12.2" fill="#3C4655" text-anchor="middle">“What's waiting on me?”</text>
+<rect x="262.5" y="938.0" width="155.6" height="30.0" rx="8" fill="#F5F7FD" stroke="#E1E5F6"/>
+<text x="340.3" y="958.0" font-size="12.2" fill="#3C4655" text-anchor="middle">“Why is INV-1002 held?”</text>
+<rect x="427.1" y="938.0" width="151.2" height="30.0" rx="8" fill="#F5F7FD" stroke="#E1E5F6"/>
+<text x="502.7" y="958.0" font-size="12.2" fill="#3C4655" text-anchor="middle">Explains status + reason</text>
+<rect x="96.0" y="978.0" width="524.0" height="28.0" rx="8" fill="#EEEFFC" stroke="none"/>
+<text x="358.0" y="997.0" font-size="11.5" font-weight="700" fill="#3F43A0" text-anchor="middle" letter-spacing="0.7">READ · EXPLAIN · QUERY — NOT THE FINANCIAL DECISION ENGINE</text>
+<g filter="url(#sh)"><rect x="702.0" y="872.0" width="1140.0" height="140.0" rx="14" fill="#FFFFFF" stroke="#E3E9F0"/></g>
+<clipPath id="c11"><rect x="702.0" y="872.0" width="1140.0" height="140.0" rx="14"/></clipPath>
+<rect x="702.0" y="872.0" width="1140.0" height="5" fill="#0B7C7B" clip-path="url(#c11)"/>
+<rect x="719.0" y="889.0" width="34.0" height="34.0" rx="9.0" fill="#E8F5F5"/>
+<g transform="translate(725.00,895.00) scale(0.9170)" fill="none" stroke="#0B7C7B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.6" fill="#0B7C7B" stroke="none"/><path d="M14.8 9.1c-.6-.9-1.7-1.4-2.9-1.4-1.7 0-2.9.9-2.9 2.2 0 3 6.1 1.6 6.1 4.6 0 1.4-1.3 2.4-3.1 2.4-1.4 0-2.6-.5-3.2-1.5" stroke="#FFFFFF" stroke-width="1.9"/></g>
+<text x="760.0" y="906.0" font-size="16.5" font-weight="700" fill="#101828">SharePoint · shared system of record</text>
+<text x="760.0" y="925.0" font-size="11.8" fill="#6B7684">The flow and the Copilot agent operate over the same invoice, PO, receiving and decision data.</text>
+<rect x="720.0" y="938.0" width="358.7" height="68.0" rx="10" fill="#E8F5F5" stroke="none"/>
+<text x="734.0" y="958.0" font-size="10.2" font-weight="700" fill="#6B7684" letter-spacing="0.8">DOCUMENT LIBRARIES · LIFECYCLE</text>
+<rect x="734.0" y="970.0" width="57.6" height="26.0" rx="7" fill="#FFFFFF" stroke="#D6E4E4"/>
+<text x="762.8" y="987.0" font-size="12" font-weight="700" fill="#08605F" text-anchor="middle">/Inbox</text>
+<rect x="799.6" y="970.0" width="53.4" height="26.0" rx="7" fill="#FFFFFF" stroke="#D6E4E4"/>
+<text x="826.3" y="987.0" font-size="12" font-weight="700" fill="#0B5C30" text-anchor="middle">/Filed</text>
+<rect x="861.0" y="970.0" width="74.3" height="26.0" rx="7" fill="#FFFFFF" stroke="#D6E4E4"/>
+<text x="898.1" y="987.0" font-size="12" font-weight="700" fill="#93233A" text-anchor="middle">/Rejected</text>
+<rect x="1092.7" y="938.0" width="358.7" height="68.0" rx="10" fill="#EAF3FB" stroke="none"/>
+<text x="1106.7" y="958.0" font-size="10.2" font-weight="700" fill="#6B7684" letter-spacing="0.8">INVOICE_DRAFTS · OPERATIONAL RECORD</text>
+<text x="1106.7" y="978.0" font-size="11.6" fill="#3C4655">invoice no · vendor · status · reason</text>
+<text x="1106.7" y="995.0" font-size="11.6" fill="#3C4655">computed_total · GL suggestion · audit</text>
+<rect x="1465.3" y="938.0" width="358.7" height="68.0" rx="10" fill="#F1EEFC" stroke="none"/>
+<text x="1479.3" y="958.0" font-size="10.2" font-weight="700" fill="#6B7684" letter-spacing="0.8">PO_LINES · PO + RECEIVING DATA</text>
+<text x="1479.3" y="978.0" font-size="11.6" fill="#3C4655">po_number · item_code · unit_price</text>
+<text x="1479.3" y="995.0" font-size="11.6" fill="#3C4655">qty_received · uom_factor</text>
+<path d="M652 950 H688" stroke="#5B5FC7" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a-p)" marker-start="url(#a-p)"/>
+<text x="670.0" y="938.0" font-size="10" font-weight="700" fill="#98A2B3" text-anchor="middle" letter-spacing="0.8">QUERY</text>
+<rect x="1210.1" y="260.5" width="67.9" height="22.0" rx="11" fill="#FFFFFF" stroke="#E2E9F1"/>
+<text x="1244.0" y="275.5" font-size="10.5" font-weight="700" fill="#0B5C30" text-anchor="middle" letter-spacing="0.7">ALL 6 PASS</text>
+<rect x="1198.8" y="470.5" width="90.4" height="22.0" rx="11" fill="#FFFFFF" stroke="#E2E9F1"/>
+<text x="1244.0" y="485.5" font-size="10.5" font-weight="700" fill="#93233A" text-anchor="middle" letter-spacing="0.7">ANY RULE FAILS</text>
+<rect x="1532.6" y="260.5" width="66.8" height="22.0" rx="11" fill="#FFFFFF" stroke="#E2E9F1"/>
+<text x="1566.0" y="275.5" font-size="10.5" font-weight="700" fill="#0B5C30" text-anchor="middle" letter-spacing="0.7">AUTO-FILE</text>
+<rect x="1525.6" y="470.5" width="80.8" height="22.0" rx="11" fill="#FFFFFF" stroke="#E2E9F1"/>
+<text x="1566.0" y="485.5" font-size="10.5" font-weight="700" fill="#93233A" text-anchor="middle" letter-spacing="0.7">TO A HUMAN</text>
+<rect x="657.4" y="795.0" width="271.2" height="22.0" rx="11" fill="#FFFFFF" stroke="#E2E9F1"/>
+<text x="793.0" y="810.0" font-size="10.5" font-weight="700" fill="#6B7684" text-anchor="middle" letter-spacing="0.7">POWER AUTOMATE READS + WRITES SHAREPOINT DATA</text>
+<text x="56.0" y="1058.0" font-size="12.5" fill="#98A2B3">github.com/Kenny-Yukich/ap-invoice-intake-agent</text>
+<text x="1864.0" y="1058.0" font-size="12.5" fill="#98A2B3" text-anchor="end">Implemented architecture · Azure Functions (Node.js) · Document Intelligence · Azure OpenAI · Power Automate · SharePoint · Teams · Copilot Studio</text>
+</svg>
