@@ -28,6 +28,11 @@ In many small and mid-size companies, AP invoice intake is still a person readin
 
 ## Architecture
 
+![AP Invoice Intake Agent architecture — AI extraction, deterministic validation, human exception handling, and grounded Copilot](docs/ap-invoice-intake-architecture.svg)
+
+<details>
+<summary>Text architecture outline</summary>
+
 ```
 SharePoint /Inbox (PDF dropped)
         │  trigger: file created (Power Automate)
@@ -54,6 +59,8 @@ Copilot Studio agent (Teams, Entra auth, general knowledge OFF)
 ```
 
 Two surfaces sit on the same data: the **adaptive card** is push (fires once, waits for one decision) and the **Copilot Studio agent** is pull (answers on demand).
+
+</details>
 
 ## The six rules
 
