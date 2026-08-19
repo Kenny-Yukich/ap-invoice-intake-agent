@@ -3,7 +3,7 @@
 
 > **Design principle: the LLM advises, it never decides about money.**
 
-An accounts-payable intake agent that watches a SharePoint inbox, extracts vendor invoices with Azure AI Document Intelligence, three-way-matches them against PO and receiving data with a **deterministic rules engine**, and surfaces held invoices to humans through Teams + Copilot Studio.
+An accounts-payable intake agent that watches a SharePoint inbox, extracts vendor invoices with Azure AI Document Intelligence, three-way-matches them against PO and receiving data with a **determi[...]
 
 ## Team
 
@@ -24,11 +24,11 @@ An accounts-payable intake agent that watches a SharePoint inbox, extracts vendo
 
 ## The problem
 
-In many small and mid-size companies, AP invoice intake is still a person reading PDFs out of an email inbox, re-keying line items, and eyeballing them against purchase orders in an ERP. It's slow, error-prone, and costly to scale. This project demonstrates an approach that combines Document AI for perception, deterministic code for money decisions, and humans for exceptions.
+In many small and mid-size companies, AP invoice intake is still a person reading PDFs out of an email inbox, re-keying line items, and eyeballing them against purchase orders in an ERP. It's slow[...]
 
 ## Architecture
 
-![AP Invoice Intake Agent architecture — AI extraction, deterministic validation, human exception handling, and grounded Copilot](docs/image)
+![AP Invoice Intake Agent architecture — AI extraction, deterministic validation, human exception handling, and grounded Copilot](docs/ap-invoice-intake-architecture.svg)
 
 <details>
 <summary>Text architecture outline</summary>
@@ -77,15 +77,15 @@ First failure wins; the invoice Holds with a specific, human-readable reason.
 
 ## Why the total is computed, not extracted
 
-Testing showed `prebuilt-invoice` extracts `InvoiceTotal` at only **~41% confidence** on zero-tax invoices (where subtotal = total, the model hedges), while line items extract at **92–98%**. A contrived total trust leads to errors, so the service computes the total from line items where possible.
+Testing showed `prebuilt-invoice` extracts `InvoiceTotal` at only **~41% confidence** on zero-tax invoices (where subtotal = total, the model hedges), while line items extract at **92–98%**. A c[...]
 
-Second finding: `prebuilt-invoice` **silently merges multi-invoice PDFs** into one cross-contaminated document rather than returning an array. Mitigation: the `Pages` parameter on the v4.x connector and careful page-scoping when calling DI.
+Second finding: `prebuilt-invoice` **silently merges multi-invoice PDFs** into one cross-contaminated document rather than returning an array. Mitigation: the `Pages` parameter on the v4.x connect[...]
 
 ## Safety & security
 
 - **No model in the money path.** All pass/fail is deterministic code; the LLM output is a labeled *suggestion* that a human must approve before it touches any record.
 - **Advisory failure is non-fatal.** If the Azure OpenAI call errors, the invoice still Holds and routes to a human — degradation, not failure.
-- **Secrets in App Settings.** `AOAI_ENDPOINT`, `AOAI_KEY`, `AOAI_DEPLOYMENT` live as Azure environment variables; nothing in this repo contains a credential. Function access is key-gated (`authLevel:function`).
+- **Secrets in App Settings.** `AOAI_ENDPOINT`, `AOAI_KEY`, `AOAI_DEPLOYMENT` live as Azure environment variables; nothing in this repo contains a credential. Function access is key-gated (`authLe[...]
 - **Copilot Studio agent runs with general knowledge OFF** and Entra authentication — it answers only from the grounded SharePoint data.
 - **Synthetic data only.** All vendors, POs, and the bill-to company are fictional.
 
