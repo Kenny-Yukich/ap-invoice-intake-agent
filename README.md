@@ -3,7 +3,7 @@
 
 > **Design principle: the LLM advises, it never decides about money.**
 
-An accounts-payable intake agent that watches a SharePoint inbox, extracts vendor invoices with Azure AI Document Intelligence, three-way-matches them against PO and receiving data with a **deterministic rules engine** (a coded Azure Function), auto-files clean invoices, and routes exceptions to a human via a Teams adaptive card. A Copilot Studio agent grounded in the same SharePoint data gives AP staff a conversational window into the queue.
+An accounts-payable intake agent that watches a SharePoint inbox, extracts vendor invoices with Azure AI Document Intelligence, three-way-matches them against PO and receiving data with a **deterministic rules engine**, and surfaces held invoices to humans through Teams + Copilot Studio.
 
 ## Team
 
@@ -24,11 +24,11 @@ An accounts-payable intake agent that watches a SharePoint inbox, extracts vendo
 
 ## The problem
 
-In many small and mid-size companies, AP invoice intake is still a person reading PDFs out of an email inbox, re-keying line items, and eyeballing them against purchase orders in an ERP. It's slow, error-prone, and the failure mode is expensive: paying an invoice you shouldn't. This project automates the intake and matching while keeping every money decision either **deterministic** or **human-approved** — never delegated to a language model.
+In many small and mid-size companies, AP invoice intake is still a person reading PDFs out of an email inbox, re-keying line items, and eyeballing them against purchase orders in an ERP. It's slow, error-prone, and costly to scale. This project demonstrates an approach that combines Document AI for perception, deterministic code for money decisions, and humans for exceptions.
 
 ## Architecture
 
-![AP Invoice Intake Agent architecture — AI extraction, deterministic validation, human exception handling, and grounded Copilot](docs/ap-invoice-intake-architecture.svg)
+![AP Invoice Intake Agent architecture — AI extraction, deterministic validation, human exception handling, and grounded Copilot](docs/image)
 
 <details>
 <summary>Text architecture outline</summary>
@@ -77,15 +77,15 @@ First failure wins; the invoice Holds with a specific, human-readable reason.
 
 ## Why the total is computed, not extracted
 
-Testing showed `prebuilt-invoice` extracts `InvoiceTotal` at only **~41% confidence** on zero-tax invoices (where subtotal = total, the model hedges), while line items extract at **92–98%**. A control test on a receipt (98.6%) confirmed this is document-type-specific. So the system **always derives `computed_total` by summing line items** and never trusts the extracted total. Measuring extraction confidence instead of assuming it is itself part of the safety story.
+Testing showed `prebuilt-invoice` extracts `InvoiceTotal` at only **~41% confidence** on zero-tax invoices (where subtotal = total, the model hedges), while line items extract at **92–98%**. A contrived total trust leads to errors, so the service computes the total from line items where possible.
 
-Second finding: `prebuilt-invoice` **silently merges multi-invoice PDFs** into one cross-contaminated document rather than returning an array. Mitigation: the `Pages` parameter on the v4.x connector action.
+Second finding: `prebuilt-invoice` **silently merges multi-invoice PDFs** into one cross-contaminated document rather than returning an array. Mitigation: the `Pages` parameter on the v4.x connector and careful page-scoping when calling DI.
 
 ## Safety & security
 
 - **No model in the money path.** All pass/fail is deterministic code; the LLM output is a labeled *suggestion* that a human must approve before it touches any record.
 - **Advisory failure is non-fatal.** If the Azure OpenAI call errors, the invoice still Holds and routes to a human — degradation, not failure.
-- **Secrets in App Settings.** `AOAI_ENDPOINT`, `AOAI_KEY`, `AOAI_DEPLOYMENT` live as Azure environment variables; nothing in this repo contains a credential. Function access is key-gated (`authLevel: function`) and keys are rotated.
+- **Secrets in App Settings.** `AOAI_ENDPOINT`, `AOAI_KEY`, `AOAI_DEPLOYMENT` live as Azure environment variables; nothing in this repo contains a credential. Function access is key-gated (`authLevel:function`).
 - **Copilot Studio agent runs with general knowledge OFF** and Entra authentication — it answers only from the grounded SharePoint data.
 - **Synthetic data only.** All vendors, POs, and the bill-to company are fictional.
 
